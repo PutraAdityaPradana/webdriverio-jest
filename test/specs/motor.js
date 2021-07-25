@@ -1,19 +1,25 @@
-import { expect as chaiExpect } from 'chai';
+import MotorPage from '../pageobjects/motor.page';
 
 describe('motorcycle Page', () => {
+    before(() => {
+        MotorPage.open();
+    });    
 
     it('should show the banner container', () => {
-        browser.url(
-            'https://www.bukalapak.com/c/motor-471?from=nav_header');
-        const PromoBanner = $('.category-main-banner');
-        expect(PromoBanner).toBeDisplayed();
+        expect(MotorPage.PromoBanner).toBeDisplayed();
     });
 
     it('navigate to new url', () => {
-        const PromoBanner = $('.category-main-banner');
-        PromoBanner.click();
-
-        const url = browser.getUrl();
-        chaiExpect(url).to.include('motor');
+        MotorPage.PromoBanner.click();
+         
+        browser.url('https://www.bukalapak.com/promo-campaign/flash-diskon?from=category&section=banner_hero')
+        expect(browser).toHaveUrl(
+            'https://www.bukalapak.com/promo-campaign/flash-diskon?from=category&section=banner_hero'
+        );
+        browser.waitUntil (
+            function() {
+                return MotorPage.NavbarPromo.getText() === "Flash Diskon"
+            });
+        console.log(browser.getUrl());
     });
 });
