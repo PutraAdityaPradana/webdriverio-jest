@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="motorcycle Page" timestamp="2021-08-09T14:50:53" time="7.584" tests="2" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="suiteName" value="motorcycle Page"/>
+      <property name="capabilities" value="chrome.92_0_4515_131.macosx"/>
+      <property name="file" value="./test/specs/motor.js"/>
+    </properties>
+    <testcase classname="chrome.92_0_4515_131.macosx.motorcycle Page" name="should show the banner container" time="0.631">
+      <system-out><![CDATA[
+COMMAND: POST /session/fce57a0bf80aa75e8af70000457d66d1/element - {"using":"css selector","value":".category-main-banner"}
+RESULT: {"using":"css selector","value":".category-main-banner"}
+COMMAND: POST /session/fce57a0bf80aa75e8af70000457d66d1/execute/sync - {"script":"return (function isElementDisplayed(element) {\n    function nodeIsElement(node) {\n        if (!node) {\n            return false;\n        }\n        switch (node.nodeType) {\n            case Node.ELEMEN ... (7762 more bytes)","args":[{"element-6066-11e4-a52e-4f735466cecf":"4fbbccd5-61d3-4365-9687-f48de8cac16a","ELEMENT":"4fbbccd5-61d3-4365-9687-f48de8cac16a"}]}
+RESULT: {"script":"return (function isElementDisplayed(element) {\n    function nodeIsElement(node) {\n        if (!node) {\n            return false;\n        }\n        switch (node.nodeType) {\n            case Node.ELEMEN ... (7762 more bytes)","args":[{"element-6066-11e4-a52e-4f735466cecf":"4fbbccd5-61d3-4365-9687-f48de8cac16a","ELEMENT":"4fbbccd5-61d3-4365-9687-f48de8cac16a"}]}
+COMMAND: GET /session/fce57a0bf80aa75e8af70000457d66d1/screenshot - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+    <testcase classname="chrome.92_0_4515_131.macosx.motorcycle Page" name="navigate to new url" time="2.228">
+      <system-out><![CDATA[
+COMMAND: POST /session/fce57a0bf80aa75e8af70000457d66d1/element - {"using":"css selector","value":".category-main-banner"}
+RESULT: {"using":"css selector","value":".category-main-banner"}
+COMMAND: POST /session/fce57a0bf80aa75e8af70000457d66d1/element/4fbbccd5-61d3-4365-9687-f48de8cac16a/click - {}
+RESULT: {}
+COMMAND: POST /session/fce57a0bf80aa75e8af70000457d66d1/url - {"url":"https://www.bukalapak.com/promo-campaign/flash-diskon?from=category&section=banner_hero"}
+RESULT: {"url":"https://www.bukalapak.com/promo-campaign/flash-diskon?from=category&section=banner_hero"}
+COMMAND: GET /session/fce57a0bf80aa75e8af70000457d66d1/url - {}
+RESULT: {}
+COMMAND: POST /session/fce57a0bf80aa75e8af70000457d66d1/element - {"using":"xpath","value":"//p[contains(text(),  'Flash Diskon')]"}
+RESULT: {"using":"xpath","value":"//p[contains(text(),  'Flash Diskon')]"}
+COMMAND: GET /session/fce57a0bf80aa75e8af70000457d66d1/element/1e3e1829-f438-495b-87d8-4db038417fe8/text - {}
+RESULT: {}
+COMMAND: GET /session/fce57a0bf80aa75e8af70000457d66d1/url - {}
+RESULT: {}
+COMMAND: GET /session/fce57a0bf80aa75e8af70000457d66d1/screenshot - {}
+RESULT: {}
+COMMAND: DELETE /session/fce57a0bf80aa75e8af70000457d66d1 - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
