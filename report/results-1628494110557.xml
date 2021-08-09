@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Bukalapak product search" timestamp="2021-08-09T14:28:33" time="7.52" tests="2" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="suiteName" value="Bukalapak product search"/>
+      <property name="capabilities" value="chrome.92_0_4515_131.macosx"/>
+      <property name="file" value="./test/specs/search.js"/>
+    </properties>
+    <testcase classname="chrome.92_0_4515_131.macosx.Bukalapak product search" name="should open the main url and verify the title" time="4.306">
+      <system-out><![CDATA[
+COMMAND: POST /session/7464dd230d15abb1da4cb1f22e9e431b/url - {"url":"https://www.bukalapak.com/"}
+RESULT: {"url":"https://www.bukalapak.com/"}
+COMMAND: GET /session/7464dd230d15abb1da4cb1f22e9e431b/title - {}
+RESULT: {}
+COMMAND: GET /session/7464dd230d15abb1da4cb1f22e9e431b/screenshot - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+    <testcase classname="chrome.92_0_4515_131.macosx.Bukalapak product search" name="search a product and verify the result" time="3.201">
+      <system-out><![CDATA[
+COMMAND: POST /session/7464dd230d15abb1da4cb1f22e9e431b/element - {"using":"css selector","value":"#v-omnisearch__input"}
+RESULT: {"using":"css selector","value":"#v-omnisearch__input"}
+COMMAND: POST /session/7464dd230d15abb1da4cb1f22e9e431b/element/ee9e6934-78c1-4b6e-80e6-5075edbfb016/value - {"text":"Masker Medis"}
+RESULT: {"text":"Masker Medis"}
+COMMAND: POST /session/7464dd230d15abb1da4cb1f22e9e431b/element - {"using":"css selector","value":".v-omnisearch__submit-icon"}
+RESULT: {"using":"css selector","value":".v-omnisearch__submit-icon"}
+COMMAND: POST /session/7464dd230d15abb1da4cb1f22e9e431b/element/0bbee080-1846-42a1-abdb-912ddcb4ea4c/click - {}
+RESULT: {}
+COMMAND: POST /session/7464dd230d15abb1da4cb1f22e9e431b/element - {"using":"css selector","value":"#v-omnisearch__input"}
+RESULT: {"using":"css selector","value":"#v-omnisearch__input"}
+COMMAND: GET /session/7464dd230d15abb1da4cb1f22e9e431b/element/29a1f904-5f8c-430c-98ef-b80c15090333/property/value - {}
+RESULT: {}
+COMMAND: GET /session/7464dd230d15abb1da4cb1f22e9e431b/screenshot - {}
+RESULT: {}
+COMMAND: DELETE /session/7464dd230d15abb1da4cb1f22e9e431b - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
