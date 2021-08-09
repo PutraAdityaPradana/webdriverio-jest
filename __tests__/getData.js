@@ -1,5 +1,5 @@
 import * as endpoints from '../__tests__/endpoint/getDataEndpoints';
-import * as schema from '../schema/getDataSchema';
+import * as schema from './schema/getDataSchema';
 import 'regenerator-runtime/runtime';
 import { matchers } from 'jest-json-schema';
 expect.extend(matchers);
