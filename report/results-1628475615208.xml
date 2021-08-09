@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Bukalapak product search" timestamp="2021-08-09T09:20:19" time="14.054" tests="2" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="suiteName" value="Bukalapak product search"/>
+      <property name="capabilities" value="chrome.92_0_4515_131.macosx"/>
+      <property name="file" value="./test/specs/search.js"/>
+    </properties>
+    <testcase classname="chrome.92_0_4515_131.macosx.Bukalapak product search" name="should open the main url and verify the title" time="6.792">
+      <system-out><![CDATA[
+COMMAND: POST /session/f36460ecf78f47618867ead567afd4e0/url - {"url":"https://www.bukalapak.com/"}
+RESULT: {"url":"https://www.bukalapak.com/"}
+COMMAND: GET /session/f36460ecf78f47618867ead567afd4e0/title - {}
+RESULT: {}
+COMMAND: GET /session/f36460ecf78f47618867ead567afd4e0/screenshot - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+    <testcase classname="chrome.92_0_4515_131.macosx.Bukalapak product search" name="search a product and verify the result" time="7.253">
+      <system-out><![CDATA[
+COMMAND: POST /session/f36460ecf78f47618867ead567afd4e0/element - {"using":"css selector","value":"#v-omnisearch__input"}
+RESULT: {"using":"css selector","value":"#v-omnisearch__input"}
+COMMAND: POST /session/f36460ecf78f47618867ead567afd4e0/element/787b62b1-dd03-445c-bb97-d80acfd12d86/value - {"text":"Masker Medis"}
+RESULT: {"text":"Masker Medis"}
+COMMAND: POST /session/f36460ecf78f47618867ead567afd4e0/element - {"using":"css selector","value":".v-omnisearch__submit-icon"}
+RESULT: {"using":"css selector","value":".v-omnisearch__submit-icon"}
+COMMAND: POST /session/f36460ecf78f47618867ead567afd4e0/element/fc818623-e042-4fa8-9d9d-bfd63f3565ef/click - {}
+RESULT: {}
+COMMAND: POST /session/f36460ecf78f47618867ead567afd4e0/element - {"using":"css selector","value":"#v-omnisearch__input"}
+RESULT: {"using":"css selector","value":"#v-omnisearch__input"}
+COMMAND: GET /session/f36460ecf78f47618867ead567afd4e0/element/302874a3-e8fa-44ca-956d-05493839bd5d/property/value - {}
+RESULT: {}
+COMMAND: GET /session/f36460ecf78f47618867ead567afd4e0/screenshot - {}
+RESULT: {}
+COMMAND: DELETE /session/f36460ecf78f47618867ead567afd4e0 - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>ULT: {"url":"https://www.bukalapak.com/promo-campaign/flash-diskon?from=category&section=banner_hero"}
+COMMAND: GET /session/b06e7b180b45990b50dc9301dc07181e/url - {}
+RESULT: {}
+COMMAND: POST /session/b06e7b180b45990b50dc9301dc07181e/element - {"using":"xpath","value":"//p[contains(text(),  'Flash Diskon')]"}
+RESULT: {"using":"xpath","value":"//p[contains(text(),  'Flash Diskon')]"}
+COMMAND: GET /session/b06e7b180b45990b50dc9301dc07181e/element/89d1fb8d-f14a-4031-8fd4-46cf1e7559c4/text - {}
+RESULT: {}
+COMMAND: GET /session/b06e7b180b45990b50dc9301dc07181e/url - {}
+RESULT: {}
+COMMAND: GET /session/b06e7b180b45990b50dc9301dc07181e/screenshot - {}
+RESULT: {}
+COMMAND: DELETE /session/b06e7b180b45990b50dc9301dc07181e - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

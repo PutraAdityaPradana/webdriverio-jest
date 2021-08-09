@@ -139,17 +139,19 @@ exports.config = {
         [
           'allure',
           {
-            reporters: [['allure', {
             outputDir: 'allure-results',
-            disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: false,
-            }]],
           },
         ],
-    ],    
-    
-
-
+        [
+          'junit',
+          {
+            outputDir: './report',
+            outputFileFormat: function (options) {
+              return `results-${new Date().getTime()}.xml`;
+            },
+          },
+        ],
+      ],    
     
     //
     // Options to be passed to Mocha.
