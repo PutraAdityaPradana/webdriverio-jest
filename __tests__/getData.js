@@ -8,6 +8,7 @@ let response;
 describe('Cheking value data', () => {
     test('Checking value data response number one', async () => {
         response = await endpoints.apiGetData();
+        console.log(response.body);
         expect(response.body).toMatchSchema(schema.getDataSchema);
         expect(response.status).toEqual(200);   
         expect(response.body[0].id).toEqual('4e09b023-f650-4747-9ab9-eacf14540cfb');
