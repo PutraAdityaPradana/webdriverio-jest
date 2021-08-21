@@ -1,3 +1,6 @@
+const path = require('path');
+const defaultTimeoutInterval = process.env.DEBUG ? (60 * 60 * 500) : 90000;
+
 exports.config = {
     //
     // ====================
@@ -24,7 +27,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/features/**/*.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -66,8 +69,6 @@ exports.config = {
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
     }],
-        maxInstances: 5,
-        browserName: 'firefox',
     //
     // ===================
     // Test Configurations
@@ -75,7 +76,8 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'warn',
+    logLevel: 'trace',
+    outputDir: path.resolve(__dirname, '../../logs'),
     //
     // Set specific log levels per logger
     // loggers:
@@ -99,7 +101,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://www.bukalapak.com',
+    baseUrl: 'http://the-internet.herokuapp.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -123,7 +125,7 @@ exports.config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'mocha',
+    framework: 'cucumber',
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -158,11 +160,24 @@ exports.config = {
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 60000,
-        require: ['@babel/register'],
-    },
+    cucumberOpts: {
+      requireModule: ['@babel/register'],
+      require: ['./test/stepdefinitions/login.js'],
+      //require: ['./test/stepdefinitions/given.js', './test/stepdefinitions/when.js', './test/stepdefinitions/then.js'],        // <string[]> (file/dir) require files before executing features
+      backtrace: true,   // <boolean> show full backtrace for errors
+      compiler: ['js:babel-core/register'],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
+      dryRun: false,      // <boolean> invoke formatters without executing steps
+      failFast: false,    // <boolean> abort the run on first failure
+      format: ['pretty'], // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
+      snippets: false,     // <boolean> hide step definition snippets for pending steps
+      source: true,       // <boolean> hide source URIs
+      profile: [],        // <string[]> (name) specify the profile to use
+      strict: false,      // <boolean> fail if there are any undefined or pending steps
+      tagExpression: '',  // <string> (expression) only execute the features or scenarios with tags matching the expression
+      timeout: 20000,     // <number> timeout for step definitions
+      ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
+      scenarioLevelReporter: false // Enable this to make webdriver.io behave as if scenarios and not steps were the tests.
+  },
     //
     // =====
     // Hooks
@@ -205,8 +220,15 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+     before: function() {
+      /**
+       * Setup the Chai assertion framework
+       */
+      const chai    = require('chai');
+      global.expect = chai.expect;
+      global.assert = chai.assert;
+      global.should = chai.should();
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

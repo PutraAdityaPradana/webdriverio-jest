@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Performing a login" timestamp="2021-08-20T19:41:09" time="0.072" tests="1" failures="1" errors="1" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="featureName" value="Performing a login"/>
+      <property name="capabilities" value="chrome.92_0_4515_159.macosx"/>
+      <property name="featureFile" value="./test/features/login.feature"/>
+    </properties>
+    <testcase classname="CucumberJUnitReport-chrome.92_0_4515_159.macosx.Performing a login" name="Performing login operation with passing test data as data table" time="0.058">
+      <failure/>
+      <error message="Step &quot;I should see the message &quot;Welcome to the Secure Area. When you are done click logout below.&quot; on the landing page&quot; is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true."/>
+      <system-out><![CDATA[
+❗ Given I am on the herokuapp login page
+❗ When I login with username and password "tomsmith" "SuperSecretPassword!" into the text box
+❗ Then I should see the message "Welcome to the Secure Area. When you are done click logout below." on the landing page
+]]></system-out>
+      <system-err><![CDATA[
+Step "I should see the message "Welcome to the Secure Area. When you are done click logout below." on the landing page" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.
+	at Feature(/Users/adityapradanaputra/Desktop/webdriverio-jest/test/features/login.feature):1:1
+	at Scenario(Performing login operation with passing test data as data table):11:5
+	at Step(I should see the message "Welcome to the Secure Area. When you are done click logout below." on the landing page):13:9
+
+]]></system-err>
+    </testcase>
+  </testsuite>
+</testsuites>
