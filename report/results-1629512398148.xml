@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Performing a login" timestamp="2021-08-21T09:20:02" time="4.524" tests="1" failures="1" errors="1" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="featureName" value="Performing a login"/>
+      <property name="capabilities" value="chrome.92_0_4515_159.macosx"/>
+      <property name="featureFile" value="./test/features/login.feature"/>
+    </properties>
+    <testcase classname="CucumberJUnitReport-chrome.92_0_4515_159.macosx.Performing a login" name="Performing login operation with passing test data as data table" time="4.012">
+      <failure/>
+      <error message="ReferenceError: ENV is not defined"/>
+      <system-out><![CDATA[
+✅ Given I am on the herokuapp login page❗ When I login with username and password "USER" "PASSWORD" into the text box⚠️ Then I should see the message "Welcome to the Secure Area. When you are done click logout below." on the landing page
+]]></system-out>
+      <system-err><![CDATA[
+ReferenceError: ENV is not defined
+    at LoginPage.login (/Users/adityapradanaputra/Desktop/webdriverio-jest/test/pageobjects/login.js:33:37)
+    at World.<anonymous> (/Users/adityapradanaputra/Desktop/webdriverio-jest/test/stepdefinitions/login.js:11:15)
+]]></system-err>
+    </testcase>
+  </testsuite>
+</testsuites>

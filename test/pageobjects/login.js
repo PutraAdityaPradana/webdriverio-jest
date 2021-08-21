@@ -1,5 +1,9 @@
+require('dotenv').config();
+
 import Page from './page';
-//import utl   from '../../utilities/common-utilities';
+
+const username = process.env.USERNAME
+const password = process.env.PASSWORD
 
 class LoginPage extends Page {
 
@@ -21,19 +25,18 @@ class LoginPage extends Page {
     /**
      * your page specific methods
      */
-
     waitForloginPageToLoad () {
       if(!this.headerImage.isDisplayed()){
-        this.headerImage.waitForDisplayed(10000);
+        this.headerImage.waitForDisplayed(5000);
       }
     }
 
-    login (username, password) {
+    login () {
         //this.waitForloginPageToLoad();
-        this.usernameInput.setValue(username);
+        this.usernameInput.setValue(username)
         this.passwordInput.setValue(password);
         this.loginButton.click();
       }
   }
-  
+
   export default new LoginPage()

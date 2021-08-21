@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Performing a login" timestamp="2021-08-21T12:17:19" time="6.322" tests="1" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="featureName" value="Performing a login"/>
+      <property name="capabilities" value="chrome.92_0_4515_159.macosx"/>
+      <property name="featureFile" value="./test/features/login.feature"/>
+    </properties>
+    <testcase classname="CucumberJUnitReport-chrome.92_0_4515_159.macosx.Performing a login" name="Performing login operation with passing test data as data table" time="6.313">
+      <system-out><![CDATA[
+✅ Given I am on the herokuapp login page✅ When I login with username and password "USER" "PASSWORD" into the text box✅ Then I should see the message "Welcome to the Secure Area. When you are done click logout below." on the landing page
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
