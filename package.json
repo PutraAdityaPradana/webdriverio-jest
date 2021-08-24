@@ -26,9 +26,11 @@
     "chromedriver": "^91.0.1",
     "jest": "^27.0.6",
     "jest-json-schema": "^5.0.0",
+    "multiple-cucumber-html-reporter": "^1.18.0",
     "supertest": "^6.1.4",
     "wdio-chromedriver-service": "^7.2.0",
-    "wdio-cucumberjs-json-reporter": "^4.0.1"
+    "wdio-cucumberjs-json-reporter": "^1.0.0",
+    "wdio-multiple-cucumber-html-reporter": "^1.1.1"
   },
   "dependencies": {
     "@jambit/wdio-cucumber-selected-steps": "^2.3.3",

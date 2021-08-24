@@ -1,5 +1,5 @@
 const path = require('path');
-const defaultTimeoutInterval = process.env.DEBUG ? (60 * 60 * 500) : 90000;
+const { generate } = require('multiple-cucumber-html-reporter');
 
 exports.config = {
     //
@@ -140,16 +140,15 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: [
-        [
-          'allure',
-          {
-            outputDir: 'allure-results',
-          },
-        ],
+      [ 'cucumberjs-json', {
+        jsonFolder: './reports/json',
+        language: 'en',
+        },
+      ],
         [
           'junit',
           {
-            outputDir: './report',
+            outputDir: './reports',
             outputFileFormat: function (options) {
               return `results-${new Date().getTime()}.xml`;
             },
@@ -307,8 +306,33 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+     onComplete: function(exitCode, config, capabilities, results) {
+      generate({
+        jsonDir: './reports/json',
+        reportPath: './reports/html',
+        metadata:{
+              browser: {
+                  name: 'chrome',
+                  version: '60'
+              },
+              device: 'Local test machine',
+              platform: {
+                  name: 'ubuntu',
+                  version: '16.04'
+              }
+          },
+          customData: {
+              title: 'Run info',
+              data: [
+                  {label: 'Project', value: 'Custom project'},
+                  {label: 'Release', value: '1.2.3'},
+                  {label: 'Cycle', value: 'B11221.34321'},
+                  {label: 'Execution Start Time', value: 'Nov 19th 2017, 02:31 PM EST'},
+                  {label: 'Execution End Time', value: 'Nov 19th 2017, 02:56 PM EST'}
+              ]
+          }
+      });
+    },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
